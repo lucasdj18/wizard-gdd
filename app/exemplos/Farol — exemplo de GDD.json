@@ -1,0 +1,381 @@
+{
+  "wizard": {
+    "version": "1.0"
+  },
+  "document": {
+    "id": "7946b5d6-1311-4a64-9249-ec5ce566134d",
+    "name": "Farol — exemplo de GDD",
+    "createdAt": "2026-09-30T14:55:06.182Z",
+    "modifiedAt": "2026-09-30T14:55:09.604Z",
+    "blocks": [
+      {
+        "id": "a450ee97-a52c-4cc1-b735-80bbc5d0b89f",
+        "type": "chapter",
+        "title": "Parte 1 — Visão",
+        "content": [
+          {
+            "id": "13c18046-622b-490b-807f-2bbcde0d48b0",
+            "type": "block",
+            "title": "Resumo do jogo",
+            "content": [
+              {
+                "id": "c77b7475-6e07-449f-968b-8dd03f74d15d",
+                "type": "description",
+                "content": "\"Farol\" é um jogo de quebra-cabeça em que o jogador cuida de um farol numa ilha e guia barcos até o porto com feixes de luz.",
+                "format": {
+                  "size": "lg"
+                }
+              },
+              {
+                "id": "c3365401-8843-475c-a818-269df8f58e59",
+                "type": "keyvalue",
+                "title": "Ficha",
+                "data": {
+                  "Gênero": "Quebra-cabeça",
+                  "Plataformas": "PC e celular",
+                  "Público": "A partir de 10 anos",
+                  "Sessão": "10 a 20 minutos"
+                },
+                "columns": [
+                  null,
+                  {
+                    "align": "right"
+                  }
+                ]
+              },
+              {
+                "id": "7d606299-0e04-4f8f-b745-421d4fb05316",
+                "type": "topic",
+                "title": "Pilares",
+                "content": [
+                  {
+                    "id": "69a1c1ad-436b-468d-904d-f26b80bb124f",
+                    "type": "item",
+                    "text": "Luz é a única ferramenta: refletir, dividir e bloquear"
+                  },
+                  {
+                    "id": "da97047c-3814-4dda-8d4e-bce6a66d1b46",
+                    "type": "item",
+                    "text": "Cada ilha ensina uma ideia nova",
+                    "marker": "→"
+                  },
+                  {
+                    "id": "3896aa6a-98b7-4bbb-a77f-8b8f02ad8129",
+                    "type": "item",
+                    "text": "Sem pressa: nenhum desafio depende de tempo",
+                    "marker": "✓"
+                  }
+                ]
+              },
+              {
+                "id": "e60bebab-6115-456c-96da-ec3144a06ff8",
+                "type": "obs",
+                "content": "O modo noturno ainda não tem data.",
+                "highlight": "question"
+              },
+              {
+                "id": "b3652349-80b4-41cf-a1a7-55225fcc8714",
+                "type": "image",
+                "src": "./ilha.png",
+                "caption": "Arte da ilha inicial",
+                "width": 640,
+                "height": 360
+              }
+            ],
+            "comment": "Revisar o público-alvo antes da próxima reunião."
+          },
+          {
+            "id": "d8c040e8-5dff-4623-adf0-3e0952419cac",
+            "type": "block",
+            "title": "Mecânicas",
+            "content": [
+              {
+                "id": "91948f1c-4609-4726-9260-3214b6294052",
+                "type": "text",
+                "content": "O feixe sai do farol em linha reta.\nEspelhos mudam a direção em 90°; prismas dividem o feixe em dois."
+              },
+              {
+                "id": "067d4968-2174-4e9a-bf6a-bdfb3055ee9c",
+                "type": "topic",
+                "title": "Peças",
+                "content": [
+                  {
+                    "id": "ee493e24-2ed9-47b9-a665-d37f16cbb7a0",
+                    "type": "item",
+                    "text": "Espelho"
+                  },
+                  {
+                    "id": "9c71e913-e4a9-43f4-84d8-55bb132b0f43",
+                    "type": "item",
+                    "text": "Prisma"
+                  },
+                  {
+                    "id": "b5da84d9-5b80-4323-aca9-13964127044d",
+                    "type": "topic",
+                    "title": "Peças especiais (a partir da ilha 3)",
+                    "content": [
+                      {
+                        "id": "efcab051-e026-435b-ae7f-35deae386be2",
+                        "type": "item",
+                        "text": "Lente: aumenta o alcance",
+                        "marker": "★"
+                      },
+                      {
+                        "id": "c4f6e675-77e8-45b2-b503-bd343c94080f",
+                        "type": "item",
+                        "text": "Nuvem: bloqueia o feixe por alguns turnos",
+                        "marker": "!"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "406c1d8f-8dbd-4785-9017-c7cab0a35638",
+                "type": "grid",
+                "content": [
+                  {
+                    "id": "27e5b677-6890-4786-9084-1a831fbcc48c",
+                    "type": "gridcol",
+                    "content": [
+                      {
+                        "id": "6616354e-5ff3-47a1-8310-277481b5d2e0",
+                        "type": "description",
+                        "content": "Controles no PC: mouse para girar as peças, roda para trocar de peça."
+                      }
+                    ]
+                  },
+                  {
+                    "id": "6e122de5-08be-4b47-b395-dedb969b01f4",
+                    "type": "gridcol",
+                    "content": [
+                      {
+                        "id": "84bf7243-470d-488f-955a-4efd2bfcad0b",
+                        "type": "description",
+                        "content": "Controles no celular: toque para girar, arrastar para mover."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "beabca84-17c9-4827-8372-64b36b139e1d",
+                "type": "video",
+                "src": "./feixe.webm",
+                "caption": "O feixe girando (protótipo)",
+                "width": 480,
+                "height": 270,
+                "duration": null
+              },
+              {
+                "id": "5f870e27-2f6e-4dc8-97b8-212fb2665086",
+                "type": "item",
+                "text": "O final da campanha revela quem acendeu o farol pela primeira vez.",
+                "highlight": "spoiler"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "2c16ca35-c4d1-436b-91a6-a77cf0c868a3",
+        "type": "grid",
+        "content": [
+          {
+            "id": "4d46415b-5555-45c8-9bcf-5acdcc3cfc11",
+            "type": "gridcol",
+            "content": [
+              {
+                "id": "429d90fd-a5cf-4227-aa77-1d2ee2d2587b",
+                "type": "description",
+                "content": "Tom visual: noite azul, luz amarela, traços simples.",
+                "format": {
+                  "color": "blue"
+                }
+              }
+            ]
+          },
+          {
+            "id": "989cb110-653e-4c6c-9c2a-4b4d4aa79bfb",
+            "type": "gridcol",
+            "content": [
+              {
+                "id": "3403d782-28e4-4873-95c9-8575d3b1973e",
+                "type": "description",
+                "content": "Tom sonoro: ondas, vento e um piano calmo.",
+                "format": {
+                  "font": "serif"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "b87e53fb-db59-4a24-9d92-1f239fe442a2",
+        "type": "block",
+        "title": "Economia",
+        "content": [
+          {
+            "id": "6b4c6256-8cd6-4749-86d5-bcf7a8069052",
+            "type": "table",
+            "title": "Loja",
+            "header": [
+              {
+                "id": "f2fd33a1-d4a4-49ce-b25a-f267ee9e0e73",
+                "data": [
+                  "Item",
+                  "Preço",
+                  "Desconto"
+                ]
+              }
+            ],
+            "rows": [
+              {
+                "id": "d0a85dd4-35f8-4e4c-ab71-19ddb71471fd",
+                "data": [
+                  "Espelho dourado",
+                  "$2,99",
+                  "0%"
+                ]
+              },
+              {
+                "id": "7b5ce47f-a470-428e-8f09-d4de3f66cb44",
+                "data": [
+                  "Pacote de ilhas",
+                  "$4,99",
+                  "10%"
+                ]
+              },
+              {
+                "id": "8a162709-6c68-47eb-ba0a-61bce18c19f9",
+                "data": [
+                  "Tema noturno",
+                  "$1,99",
+                  "0%"
+                ]
+              }
+            ],
+            "columns": [
+              null,
+              {
+                "align": "right",
+                "kind": "money"
+              },
+              {
+                "align": "right",
+                "kind": "percent"
+              }
+            ]
+          },
+          {
+            "id": "50e3dae2-7c98-46bc-8c47-e210760830b0",
+            "type": "summary",
+            "title": "Cardápio da loja",
+            "rows": [
+              {
+                "id": "035bb1a2-862a-4ebc-a205-d9a24bb6ffdb",
+                "data": [
+                  "Espelho dourado",
+                  "$2,99"
+                ]
+              },
+              {
+                "id": "3b9cf97f-1611-428c-b9dd-b5683bafaffd",
+                "data": [
+                  "Pacote de ilhas",
+                  "$4,99"
+                ]
+              },
+              {
+                "id": "a208fbe8-975e-4e55-922c-d862a146be11",
+                "data": [
+                  "Tema noturno",
+                  "$1,99"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "f1b645ac-9e73-48ab-88d8-25da764db4db",
+            "type": "obs",
+            "content": "Os preços seguem a `f{6b4c6256-8cd6-4749-86d5-bcf7a8069052, 'tabela da loja'}`.",
+            "highlight": "alert"
+          },
+          {
+            "id": "cb585ef2-901b-4f8d-9398-760909734727",
+            "type": "divider",
+            "width": 50,
+            "style": "dashed"
+          },
+          {
+            "id": "03142840-3c1d-4b0a-a05b-137205616dec",
+            "type": "checklist",
+            "title": "Antes do lançamento",
+            "items": [
+              {
+                "id": "1d46a703-8cc0-4fb2-9006-a349d7c5566a",
+                "text": "Definir os preços",
+                "done": true
+              },
+              {
+                "id": "de63e727-0b25-4233-bf6c-29a8126d8861",
+                "text": "Testar a loja no celular",
+                "done": false
+              },
+              {
+                "id": "bf12aa6f-d56f-420b-9b62-82565de503eb",
+                "text": "Revisar as `f{d8c040e8-5dff-4623-adf0-3e0952419cac, 'mecânicas'}`",
+                "done": false
+              }
+            ]
+          },
+          {
+            "id": "c4760006-bbbe-4402-8bd7-4ab2d2e8c6a6",
+            "type": "spacer",
+            "size": "sm"
+          }
+        ]
+      },
+      {
+        "id": "aa2b2dbc-4671-4933-884d-6c78959465fb",
+        "type": "block",
+        "title": "Som e galeria",
+        "content": [
+          {
+            "id": "234b7eb5-f5e9-4c52-80b7-7ca3417f746e",
+            "type": "audio",
+            "src": "./tema-da-ilha.wav",
+            "caption": "Tema da ilha (rascunho)",
+            "duration": 3
+          },
+          {
+            "id": "ed8024c2-5d9e-452c-af3c-bc5dd9581047",
+            "type": "image",
+            "src": "./ilha-1.png",
+            "caption": "Ilhas 1 a 3",
+            "gallery": {
+              "rows": 1,
+              "cols": 3
+            },
+            "fit": "cover",
+            "width": 320,
+            "height": 240,
+            "more": [
+              {
+                "src": "./ilha-2.png",
+                "width": 320,
+                "height": 240
+              },
+              {
+                "src": "./ilha-3.png",
+                "width": 320,
+                "height": 240
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

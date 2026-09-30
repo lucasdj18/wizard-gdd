@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WizarD</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧙</text></svg>">
+  <!-- ?v= é o hash do conteúdo de cada arquivo (B6, B22): arquivo que muda ganha versão nova e o navegador
+       busca o novo em vez do antigo do cache. Não edite à mão: rode python3 tools/versao.py -->
+
+  <link rel="stylesheet" href="css/fonts.css?v=74809476">
+  <link rel="stylesheet" href="css/style.css?v=eae1ee0e">
+</head>
+<body>
+
+<!-- Tela inicial (preenchida por showLoadScreen) -->
+<div id="load-screen"></div>
+
+<button class="btn-show-sidebar" id="btn-show-sidebar" title="☰">☰</button>
+
+<div id="editor-app">
+  <div class="app-layout">
+
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-info">
+          <div class="sidebar-eyebrow" data-i18n="sidebar.eyebrow">WizarD · Editor</div>
+          <div class="sidebar-title">WizarD<span>.</span></div>
+          <div class="doc-status" id="doc-status">—</div>
+        </div>
+        <button class="btn-sidebar-collapse" id="btn-collapse-sidebar" title="←">←</button>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebar-nav"></nav>
+
+      <div class="sidebar-footer">
+        <div class="history-buttons">
+          <button class="btn-sidebar-action" id="btn-undo" data-i18n="action.undo" data-i18n-title="action.undoTip" disabled>↶ Desfazer</button>
+          <button class="btn-sidebar-action" id="btn-redo" data-i18n="action.redo" data-i18n-title="action.redoTip" disabled>↷ Refazer</button>
+        </div>
+        <button class="btn-sidebar-action btn-sidebar-save" id="btn-save" data-i18n="action.save">💾 Salvar</button>
+        <button class="btn-sidebar-action" id="btn-preview" data-i18n="action.preview">{ } Preview</button>
+        <button class="btn-sidebar-action" id="btn-docs" data-i18n="action.docs">📄 Documentos</button>
+        <button class="btn-sidebar-action" id="btn-guide" data-i18n="action.guide">❔ Guia rápido</button>
+        <button class="btn-sidebar-action" id="btn-settings" data-i18n="action.settings">⚙ Configurações</button>
+        <button class="btn-sidebar-action" id="btn-lang" data-i18n="action.language">🌐 English</button>
+      </div>
+    </aside>
+
+    <div class="main-content-area">
+      <!-- Usuário e colaboradores (fase 7: só visual) -->
+      <div class="presence" id="presence"></div>
+      <main class="editor-main" id="editor-main"></main>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/i18n.js?v=7d9278cf"></script>
+<script src="js/core.js?v=8584b12a"></script>
+<script src="js/formula.js?v=affc9841"></script>
+<script src="js/format.js?v=99c7eaf4"></script>
+<script src="js/modelo.js?v=85430c9b"></script>
+<script src="js/docs.js?v=2fc7dc38"></script>
+<script src="js/history.js?v=1933cf76"></script>
+<script src="js/model.js?v=79b69497"></script>
+<script src="js/media.js?v=8936f4ef"></script>
+<script src="js/manager.js?v=856d97be"></script>
+<script src="js/print.js?v=70cfaa9f"></script>
+<script src="js/export.js?v=5f30ffd4"></script>
+<script src="js/presence.js?v=a90076b6"></script>
+<script src="js/editor-sidebar.js?v=6efde61c"></script>
+<script src="js/editor-media.js?v=d53d90b0"></script>
+<script src="js/editor-menus.js?v=5db4fc41"></script>
+<script src="js/editor-edit.js?v=276e25c9"></script>
+<script src="js/editor.js?v=44f03740"></script>
+<script src="js/search.js?v=36d348b6"></script>
+</body>
+</html>

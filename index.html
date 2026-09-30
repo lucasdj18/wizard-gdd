@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WizarD — editor de GDD no navegador</title>
+<meta name="description" content="WizarD: um editor de documentos de game design (GDD) que roda no navegador. Tabelas com fórmulas, imagens, vídeos e áudios, exportação para PDF, DOCX, Markdown e HTML. Seus documentos ficam com você.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧙</text></svg>">
+<!-- Página de apresentação (18g). Publicada na raiz do site; o app fica em app/ (ver tools/publicar.sh) -->
+<link rel="stylesheet" href="app/css/fonts.css">
+<style>
+:root {
+  --bg: #080808; --surface: #111; --border: #2a2a2a; --accent: #00ff88; --accent2: #0088ff;
+  --text: #e8e8e8; --dim: #8a8a8a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; line-height: 1.6; }
+a { color: var(--accent); }
+html[data-lang="pt"] [lang="en"], html[data-lang="en"] [lang="pt"] { display: none !important; }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+.logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -0.5px; text-decoration: none; color: var(--text); }
+.logo span { color: var(--accent); }
+.lang { background: none; border: 1px solid var(--border); color: var(--dim); font: inherit; font-size: 12px; padding: 6px 12px; cursor: pointer; }
+.lang:hover { color: var(--text); border-color: var(--dim); }
+
+.hero { padding: 56px 0 40px; text-align: center; }
+.hero h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(32px, 6vw, 58px); line-height: 1.05; letter-spacing: -1px; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero p { max-width: 680px; margin: 20px auto 0; color: var(--dim); font-size: 16px; }
+.cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+.btn { display: inline-block; padding: 14px 26px; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; }
+.btn-primary { background: var(--accent); color: var(--bg); }
+.btn-secondary { border: 1px solid var(--border); color: var(--text); }
+.btn:hover { opacity: 0.88; }
+.note { margin-top: 14px; font-size: 12px; color: var(--dim); }
+
+.shot { margin: 24px auto 0; border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0, 255, 136, 0.06); }
+.shot img { display: block; width: 100%; height: auto; }
+
+section { padding: 56px 0; border-top: 1px solid var(--border); }
+h2 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 28px; margin-bottom: 24px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--border); padding: 20px; }
+.card h3 { font-size: 14px; color: var(--accent); margin-bottom: 8px; letter-spacing: 0.5px; }
+.card p { font-size: 13px; color: var(--dim); }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pair figcaption { font-size: 12px; color: var(--dim); margin-top: 8px; }
+.privacy p + p { margin-top: 12px; }
+.privacy p { max-width: 760px; color: var(--dim); }
+.privacy strong { color: var(--text); }
+footer { padding: 32px 0 48px; border-top: 1px solid var(--border); font-size: 12px; color: var(--dim); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 720px) {
+  .pair { grid-template-columns: 1fr; }
+  .hero { padding-top: 32px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="logo" href="#">WizarD<span>.</span></a>
+    <button class="lang" type="button" id="lang"><span lang="pt">English</span><span lang="en">Português</span></button>
+  </header>
+
+  <div class="hero">
+    <h1>
+      <span lang="pt">Seu documento de game design, <em>organizado do seu jeito.</em></span>
+      <span lang="en">Your game design document, <em>organized your way.</em></span>
+    </h1>
+    <p lang="pt">Um editor de GDD que roda no navegador: contêineres, tópicos, tabelas com fórmulas, imagens, vídeos e áudios. Exporta para PDF, DOCX, Markdown e HTML. Seus documentos ficam com você.</p>
+    <p lang="en">A GDD editor that runs in your browser: containers, topics, tables with formulas, images, videos and audio. Exports to PDF, DOCX, Markdown and HTML. Your documents stay with you.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="app/"><span lang="pt">Abrir o WizarD</span><span lang="en">Open WizarD</span></a>
+      <a class="btn btn-secondary" href="app/?exemplo"><span lang="pt">Ver um exemplo</span><span lang="en">See an example</span></a>
+    </div>
+    <div class="note">
+      <span lang="pt">Grátis, sem cadastro. Funciona melhor no Chrome e no Edge.</span>
+      <span lang="en">Free, no sign-up. Works best in Chrome and Edge.</span>
+    </div>
+    <figure class="shot"><img src="img/exemplo.png" width="1342" height="734" alt="O WizarD com o exemplo Farol aberto: sidebar com o índice e o documento com capítulo, contêiner, ficha e pilares" loading="eager"></figure>
+  </div>
+
+  <section>
+    <h2><span lang="pt">O que ele faz</span><span lang="en">What it does</span></h2>
+    <div class="grid">
+      <div class="card">
+        <h3><span lang="pt">Tudo no mesmo lugar</span><span lang="en">Everything in one place</span></h3>
+        <p lang="pt">Capítulos, contêineres, tópicos dentro de tópicos, grids, chave-valor, checklists e sumários. Duplo clique edita, clique direito abre o menu, a alça ⠿ arrasta.</p>
+        <p lang="en">Chapters, containers, nested topics, grids, key-values, checklists and summaries. Double-click to edit, right-click for the menu, drag by the ⠿ handle.</p>
+      </div>
+      <div class="card">
+        <h3><span lang="pt">Tabelas que calculam</span><span lang="en">Tables that calculate</span></h3>
+        <p lang="pt">Fórmulas ligam um item ao outro e somam, tiram média, mínimo e máximo de colunas, em moeda, porcentagem ou número.</p>
+        <p lang="en">Formulas link one item to another and sum, average, min and max columns, as currency, percentage or number.</p>
+      </div>
+      <div class="card">
+        <h3><span lang="pt">Imagens, vídeos e áudios</span><span lang="en">Images, videos and audio</span></h3>
+        <p lang="pt">Galerias, player de vídeo e de áudio próprios. As mídias ficam numa pasta, ao lado do documento.</p>
+        <p lang="en">Galleries and built-in video and audio players. Media live in a folder, next to the document.</p>
+      </div>
+      <div class="card">
+        <h3><span lang="pt">Exporta para tudo</span><span lang="en">Exports to everything</span></h3>
+        <p lang="pt">PDF em páginas A4 bem quebradas, DOCX para o Word e o Google Docs, Markdown, TXT e formulário HTML.</p>
+        <p lang="en">PDF with well-broken A4 pages, DOCX for Word and Google Docs, Markdown, TXT and HTML form.</p>
+      </div>
+      <div class="card">
+        <h3><span lang="pt">Revisão</span><span lang="en">Review</span></h3>
+        <p lang="pt">Comentários, destaques de alerta, dúvida e spoiler, busca e substituir, desfazer, e sinais no índice do que falta preencher.</p>
+        <p lang="en">Comments, alert, question and spoiler highlights, find and replace, undo, and signals in the index for what is still missing.</p>
+      </div>
+      <div class="card">
+        <h3><span lang="pt">Comece rápido</span><span lang="en">Start fast</span></h3>
+        <p lang="pt">Um modelo de GDD com as partes de sempre (visão, pilares, mecânicas, personagens, mundo, arte, cronograma) e um exemplo completo para explorar.</p>
+        <p lang="en">A GDD template with the usual parts (vision, pillars, mechanics, characters, world, art, schedule) and a complete example to explore.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="pair">
+      <figure class="shot"><img src="img/exemplo-tabela.png" width="1342" height="734" alt="Tabela de preços, cardápio e checklist no exemplo, com links de fórmula" loading="lazy">
+        <figcaption><span lang="pt">Tabelas, cardápio, checklist e links entre itens.</span><span lang="en">Tables, menus, checklists and links between items.</span></figcaption></figure>
+      <figure class="shot"><img src="img/modelo.png" width="1342" height="734" alt="Documento novo a partir do modelo de GDD, com textos-guia" loading="lazy">
+        <figcaption><span lang="pt">O modelo de GDD, com textos-guia para substituir.</span><span lang="en">The GDD template, with guide texts to replace.</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="privacy" id="privacidade">
+    <h2><span lang="pt">Privacidade</span><span lang="en">Privacy</span></h2>
+    <p lang="pt"><strong>O WizarD roda inteiro no seu navegador.</strong> Os documentos ficam guardados no próprio navegador e nos arquivos que você salvar no seu computador. Nada do que você escreve é enviado a servidores: não há conta, cadastro, cookies de rastreamento nem análise de uso.</p>
+    <p lang="en"><strong>WizarD runs entirely in your browser.</strong> Your documents are kept in the browser itself and in the files you save on your computer. Nothing you write is sent to servers: there is no account, sign-up, tracking cookies or usage analytics.</p>
+    <p lang="pt">O site é hospedado pelo GitHub Pages, que registra dados técnicos de acesso (como o endereço IP) para segurança, segundo a <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">declaração de privacidade do GitHub</a>. O botão "Enviar sugestão ou erro" do app abre o GitHub e envia só o que você escrever, junto com a versão do app e o nome do navegador.</p>
+    <p lang="en">The site is hosted on GitHub Pages, which logs technical access data (such as the IP address) for security, according to the <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub privacy statement</a>. The app's "Send a suggestion or bug" button opens GitHub and sends only what you write, along with the app version and the browser name.</p>
+    <p lang="pt">Como os dados ficam no navegador, limpar os dados do site apaga os documentos que não foram salvos em arquivo. Salve o JSON de vez em quando; o WizarD lembra.</p>
+    <p lang="en">Because the data stays in the browser, clearing the site data deletes documents that were not saved to a file. Save the JSON now and then; WizarD reminds you.</p>
+  </section>
+
+  <footer>
+    <span><span lang="pt">Criado e desenvolvido por</span><span lang="en">Created and developed by</span> VII Solutions</span>
+    <span><a href="app/"><span lang="pt">Abrir o WizarD</span><span lang="en">Open WizarD</span></a> · <a href="#privacidade"><span lang="pt">Privacidade</span><span lang="en">Privacy</span></a></span>
+  </footer>
+</div>
+<script>
+  // Idioma: o escolhido antes, senão o do navegador
+  const root = document.documentElement;
+  const set = l => { root.dataset.lang = l; root.lang = l === 'pt' ? 'pt-BR' : 'en'; try { localStorage.setItem('wizard-site-lang', l); } catch {} };
+  let saved = null;
+  try { saved = localStorage.getItem('wizard-site-lang'); } catch {}
+  set(saved || ((navigator.language || '').toLowerCase().startsWith('pt') ? 'pt' : 'en'));
+  document.getElementById('lang').addEventListener('click', () => set(root.dataset.lang === 'pt' ? 'en' : 'pt'));
+</script>
+</body>
+</html>

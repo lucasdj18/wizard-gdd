@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farol — exemplo de GDD</title>
+<style>
+.wz-form{--wz-accent:#0a7a47;--wz-border:#d0d0d0;--wz-text:#1d1d1d;--wz-muted:#666;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--wz-text);max-width:760px;margin:24px auto;padding:0 16px;line-height:1.5}
+.wz-form h1{font-size:1.6rem;margin:0 0 20px;padding-bottom:10px;border-bottom:2px solid var(--wz-accent)}
+.wz-form fieldset{border:1px solid var(--wz-border);border-radius:6px;padding:14px 16px;margin:0 0 18px}
+.wz-form legend{font-weight:700;padding:0 6px}
+.wz-form .wz-section>legend{font-size:1.15rem;color:var(--wz-accent)}
+.wz-form .wz-topic{border-style:dashed}
+.wz-form .wz-field{display:flex;flex-direction:column;gap:4px;margin:0 0 12px}
+.wz-form label{font-size:.85rem;color:var(--wz-muted)}
+.wz-form input[type=text],.wz-form textarea{font:inherit;padding:8px 10px;border:1px solid var(--wz-border);border-radius:4px;width:100%;box-sizing:border-box}
+.wz-form input[type=text]:focus,.wz-form textarea:focus{outline:2px solid var(--wz-accent);outline-offset:0;border-color:var(--wz-accent)}
+.wz-form .wz-group{margin:0 0 14px}
+.wz-form .wz-group-title{font-weight:600;margin:0 0 6px}
+.wz-form .wz-table{border-collapse:collapse;width:100%}
+.wz-form .wz-table th{text-align:left;font-size:.85rem;background:#f4f4f4;padding:6px 8px;border:1px solid var(--wz-border)}
+.wz-form .wz-table td{padding:0;border:1px solid var(--wz-border)}
+.wz-form .wz-table input[type=text]{border:0;border-radius:0}
+.wz-form .wz-check{display:flex;align-items:center;gap:8px;color:var(--wz-text);font-size:1rem;margin:4px 0}
+.wz-form input[type=checkbox]{width:18px;height:18px;accent-color:var(--wz-accent)}
+.wz-form .wz-figure{margin:0 0 14px}
+.wz-form .wz-figure img,.wz-form .wz-figure video{max-width:100%;height:auto;border-radius:4px;display:block}
+.wz-form .wz-figure figcaption{font-size:.85rem;color:var(--wz-muted);margin-top:4px}
+.wz-form .wz-sum{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 6px}
+.wz-form .wz-gallery{display:grid;gap:8px}
+.wz-form .wz-gallery img{width:100%;height:auto}
+.wz-form .wz-figure audio{width:100%}
+.wz-form .wz-hr{border:0;border-top:1px solid var(--wz-border);margin:14px auto}
+.wz-form .wz-chapter{font-size:1.4rem;margin:28px 0 14px;padding-bottom:6px;border-bottom:3px double var(--wz-accent)}
+.wz-form .wz-hl{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:3px;margin:0 0 6px}
+.wz-form .wz-hl-alert{background:#fff1e0;color:#b35c00}.wz-form .wz-hl-question{background:#e8f0ff;color:#0b5cad}.wz-form .wz-hl-spoiler{background:#eee;color:#555}
+.wz-form .wz-grid{display:grid;gap:16px;margin:0 0 14px}
+.wz-form .wz-grid-col{min-width:0}
+@media (max-width:600px){.wz-form .wz-grid{grid-template-columns:1fr!important}}
+</style>
+</head>
+<body>
+<form class="wz-form" action="#">
+<h1>Farol — exemplo de GDD</h1>
+<h2 class="wz-chapter">Parte 1 — Visão</h2>
+<fieldset class="wz-section"><legend>Resumo do jogo</legend>
+<div class="wz-field"><label for="f1">Descrição</label><textarea id="f1" name="f1" rows="2" style="font-size:1.25em">&quot;Farol&quot; é um jogo de quebra-cabeça em que o jogador cuida de um farol numa ilha e guia barcos até o porto com feixes de luz.</textarea></div>
+<div class="wz-group"><div class="wz-group-title">Ficha</div>
+<div class="wz-field"><label for="f2">Gênero</label><input id="f2" name="f2" type="text" value="Quebra-cabeça" style="text-align:right"></div>
+<div class="wz-field"><label for="f3">Plataformas</label><input id="f3" name="f3" type="text" value="PC e celular" style="text-align:right"></div>
+<div class="wz-field"><label for="f4">Público</label><input id="f4" name="f4" type="text" value="A partir de 10 anos" style="text-align:right"></div>
+<div class="wz-field"><label for="f5">Sessão</label><input id="f5" name="f5" type="text" value="10 a 20 minutos" style="text-align:right"></div>
+</div>
+<fieldset class="wz-topic"><legend>Pilares</legend>
+<div class="wz-field"><label for="f6">Item</label><input id="f6" name="f6" type="text" value="Luz é a única ferramenta: refletir, dividir e bloquear"></div>
+<div class="wz-field"><label for="f7">→ Item</label><input id="f7" name="f7" type="text" value="Cada ilha ensina uma ideia nova"></div>
+<div class="wz-field"><label for="f8">✓ Item</label><input id="f8" name="f8" type="text" value="Sem pressa: nenhum desafio depende de tempo"></div>
+</fieldset>
+<div class="wz-hl wz-hl-question">? DÚVIDA</div>
+<div class="wz-field"><label for="f9">Observação</label><textarea id="f9" name="f9" rows="2">O modo noturno ainda não tem data.</textarea></div>
+<figure class="wz-figure"><img src="./ilha.png" alt="Arte da ilha inicial" width="640" height="360"><figcaption>Arte da ilha inicial</figcaption></figure>
+</fieldset>
+<fieldset class="wz-section" id="w-d8c040e8-5dff-4623-adf0-3e0952419cac"><legend>Mecânicas</legend>
+<div class="wz-field"><label for="f10">Texto longo</label><textarea id="f10" name="f10" rows="2">O feixe sai do farol em linha reta.
+Espelhos mudam a direção em 90°; prismas dividem o feixe em dois.</textarea></div>
+<fieldset class="wz-topic"><legend>Peças</legend>
+<div class="wz-field"><label for="f11">Item</label><input id="f11" name="f11" type="text" value="Espelho"></div>
+<div class="wz-field"><label for="f12">Item</label><input id="f12" name="f12" type="text" value="Prisma"></div>
+<fieldset class="wz-topic"><legend>Peças especiais (a partir da ilha 3)</legend>
+<div class="wz-field"><label for="f13">★ Item</label><input id="f13" name="f13" type="text" value="Lente: aumenta o alcance"></div>
+<div class="wz-field"><label for="f14">! Item</label><input id="f14" name="f14" type="text" value="Nuvem: bloqueia o feixe por alguns turnos"></div>
+</fieldset>
+</fieldset>
+<div class="wz-grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+<div class="wz-grid-col">
+<div class="wz-field"><label for="f15">Descrição</label><textarea id="f15" name="f15" rows="2">Controles no PC: mouse para girar as peças, roda para trocar de peça.</textarea></div>
+</div>
+<div class="wz-grid-col">
+<div class="wz-field"><label for="f16">Descrição</label><textarea id="f16" name="f16" rows="2">Controles no celular: toque para girar, arrastar para mover.</textarea></div>
+</div>
+</div>
+<figure class="wz-figure"><video src="./feixe.webm" controls preload="metadata" width="480" height="270"></video><figcaption>O feixe girando (protótipo)</figcaption></figure>
+<div class="wz-hl wz-hl-spoiler">🔒 SPOILER</div>
+<div class="wz-field"><label for="f17">Item</label><input id="f17" name="f17" type="text" value="O final da campanha revela quem acendeu o farol pela primeira vez."></div>
+</fieldset>
+<div class="wz-grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+<div class="wz-grid-col">
+<div class="wz-field"><label for="f18">Descrição</label><textarea id="f18" name="f18" rows="2" style="color:#0B5CAD">Tom visual: noite azul, luz amarela, traços simples.</textarea></div>
+</div>
+<div class="wz-grid-col">
+<div class="wz-field"><label for="f19">Descrição</label><textarea id="f19" name="f19" rows="2" style="font-family:Georgia,sans-serif">Tom sonoro: ondas, vento e um piano calmo.</textarea></div>
+</div>
+</div>
+<fieldset class="wz-section"><legend>Economia</legend>
+<div class="wz-group" id="w-6b4c6256-8cd6-4749-86d5-bcf7a8069052"><div class="wz-group-title">Loja</div><table class="wz-table"><thead><tr><th scope="col">Item</th><th scope="col" style="text-align:right">Preço</th><th scope="col" style="text-align:right">Desconto</th></tr></thead><tbody>
+<tr><td><input id="f20" name="f20" type="text" aria-label="Item" value="Espelho dourado"></td><td><input id="f21" name="f21" type="text" aria-label="Preço" value="$2,99" style="text-align:right"></td><td><input id="f22" name="f22" type="text" aria-label="Desconto" value="0%" style="text-align:right"></td></tr>
+<tr><td><input id="f23" name="f23" type="text" aria-label="Item" value="Pacote de ilhas"></td><td><input id="f24" name="f24" type="text" aria-label="Preço" value="$4,99" style="text-align:right"></td><td><input id="f25" name="f25" type="text" aria-label="Desconto" value="10%" style="text-align:right"></td></tr>
+<tr><td><input id="f26" name="f26" type="text" aria-label="Item" value="Tema noturno"></td><td><input id="f27" name="f27" type="text" aria-label="Preço" value="$1,99" style="text-align:right"></td><td><input id="f28" name="f28" type="text" aria-label="Desconto" value="0%" style="text-align:right"></td></tr>
+</tbody></table></div>
+<div class="wz-group"><div class="wz-group-title">Cardápio da loja</div>
+<div class="wz-sum"><input id="f29" name="f29" type="text" aria-label="Cardápio da loja" value="Espelho dourado" style="text-align:left"><input id="f30" name="f30" type="text" aria-label="Espelho dourado" value="$2,99" style="text-align:right"></div>
+<div class="wz-sum"><input id="f31" name="f31" type="text" aria-label="Cardápio da loja" value="Pacote de ilhas" style="text-align:left"><input id="f32" name="f32" type="text" aria-label="Pacote de ilhas" value="$4,99" style="text-align:right"></div>
+<div class="wz-sum"><input id="f33" name="f33" type="text" aria-label="Cardápio da loja" value="Tema noturno" style="text-align:left"><input id="f34" name="f34" type="text" aria-label="Tema noturno" value="$1,99" style="text-align:right"></div>
+</div>
+<div class="wz-hl wz-hl-alert">⚠ ALERTA</div>
+<div class="wz-field"><label for="f35">Observação</label><textarea id="f35" name="f35" rows="2">Os preços seguem a tabela da loja.</textarea></div>
+<hr class="wz-hr" style="width:50%;border-top-style:dashed">
+<fieldset class="wz-checks"><legend>Antes do lançamento</legend>
+<label class="wz-check" for="f36"><input id="f36" name="f36" type="checkbox" checked> Definir os preços</label>
+<label class="wz-check" for="f37"><input id="f37" name="f37" type="checkbox"> Testar a loja no celular</label>
+<label class="wz-check" for="f38"><input id="f38" name="f38" type="checkbox"> Revisar as <a href="#w-d8c040e8-5dff-4623-adf0-3e0952419cac">mecânicas</a></label>
+</fieldset>
+<div class="wz-spacer" style="height:14px"></div>
+</fieldset>
+<fieldset class="wz-section"><legend>Som e galeria</legend>
+<figure class="wz-figure"><audio src="./tema-da-ilha.wav" controls preload="metadata"></audio><figcaption>Tema da ilha (rascunho)</figcaption></figure>
+<figure class="wz-figure"><div class="wz-gallery" style="grid-template-columns:repeat(3,minmax(0,1fr))"><img src="./ilha-1.png" alt="Ilhas 1 a 3" width="320" height="240"><img src="./ilha-2.png" alt="Ilhas 1 a 3" width="320" height="240"><img src="./ilha-3.png" alt="Ilhas 1 a 3" width="320" height="240"></div><figcaption>Ilhas 1 a 3</figcaption></figure>
+</fieldset>
+</form>
+</body>
+</html>
